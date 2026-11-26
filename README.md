@@ -4,7 +4,7 @@ Design and print labels on the **XenGro AH-P05** Bluetooth label printer (12 mm 
 
 **▶ Open the app:** `https://<your-username>.github.io/<repo-name>/` *(replace with your GitHub Pages link)*
 
-> Not affiliated with XenGro or the PrinterMate app. Reverse-engineered for interoperability with a printer I own. Use at your own risk.
+> Not affiliated with XenGro or the PrinterMate app. Made with AI for a printer I own. Use at your own risk.
 
 ## Features
 
