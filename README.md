@@ -1,6 +1,6 @@
 # AH-P05 Label Printer: print from Windows without the phone app
 
-A small open project for printing to the **XenGro AH-P05** Bluetooth label printer (12 mm labels, 96-dot head) from a PC, without the PrinterMate phone app.
+A small project for myself for printing to the **XenGro AH-P05** Bluetooth label printer (12 mm labels, 96-dot head) from a PC, without the PrinterMate phone app.
 
 It includes:
 
