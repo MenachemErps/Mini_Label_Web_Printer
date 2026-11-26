@@ -2,8 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0614">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://api.iconify.design; connect-src 'self' https://api.iconify.design; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <title>AH-P05 Label Studio</title>
+<script>try{document.documentElement.dataset.theme=JSON.parse(localStorage.getItem("ahp05.theme"))||"vibe"}catch(e){document.documentElement.dataset.theme="vibe"}</script>
 <style>
 :root{color-scheme:light dark;--bg:#eef1f7;--panel:#fff;--panel2:#f6f8fc;--ink:#172033;--muted:#667085;--line:#dde2ec;--brand:#5457e6;--brand2:#3f42c4;--brandSoft:#5457e61a;--ok:#16854a;--bad:#c02a36;--warn:#a15c00;--shadow:0 6px 20px #1720330f}
 *{box-sizing:border-box}
@@ -79,20 +86,101 @@ dialog::backdrop{background:#0b102088}
 .mylist .it{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:9px;padding:6px 9px}.mylist .it span{flex:1}
 @media(max-width:1180px){.app{grid-template-columns:270px minmax(0,1fr)}.col.right{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start}}
 @media(max-width:800px){.app{grid-template-columns:1fr}.col.center{order:-1}}
-@media(prefers-color-scheme:dark){.btn.on,.btn.on:hover:not(:disabled){color:#0d1220}:root{--bg:#0d1220;--panel:#171d2c;--panel2:#1d2434;--ink:#e9eefb;--muted:#9aa5bc;--line:#2c3549;--brand:#7a7df5;--brand2:#9395ff;--brandSoft:#7a7df528;--shadow:none}.stage{background:repeating-conic-gradient(#161c2b 0 25%,#1a2132 0 50%) 0/20px 20px}.btn.on,.btn.primary{color:#0d1220}.btn.primary:hover:not(:disabled){color:#0d1220}}
+/* ---------- themes (v8) ---------- */
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=night]{color-scheme:dark;--bg:#07090e;--panel:#10141c;--panel2:#151a24;--ink:#d6dbe6;--muted:#7f8899;--line:#222936;--brand:#c9a36a;--brand2:#e0bd86;--brandSoft:#c9a36a22;--ok:#7bc48f;--bad:#e07a7a;--warn:#e0b46a;--shadow:none}
+:root[data-theme=night] header{background:#0d1118;border-bottom:1px solid var(--line);color:#d6dbe6}
+:root[data-theme=night] .stage{background:repeating-conic-gradient(#0c1017 0 25%,#0f131b 0 50%) 0/20px 20px}
+:root[data-theme=night] .btn.on,:root[data-theme=night] .btn.primary{color:#0b0d12}
+:root[data-theme=night] .paperwrap{filter:brightness(.82)}
+:root[data-theme=vibe]{color-scheme:dark;--bg:#0a0614;--panel:#140d24;--panel2:#1b1230;--ink:#f4efff;--muted:#a99ccc;--line:#2e2150;--brand:#a855f7;--brand2:#ec4899;--brandSoft:#a855f726;--ok:#34f5b0;--bad:#ff6b8f;--warn:#ffc65c;--shadow:0 10px 34px #0009;--grad:linear-gradient(100deg,#7c3aed,#db2777 55%,#f97316)}
+:root[data-theme=vibe] body{background:radial-gradient(900px 500px at 10% -10%,#7c3aed33,transparent 60%),radial-gradient(800px 500px at 100% 0%,#db277726,transparent 60%),radial-gradient(900px 600px at 50% 120%,#06b6d41f,transparent 60%),var(--bg);background-attachment:fixed}
+:root[data-theme=vibe] header{background:#0d0819cc;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #ffffff14}
+:root[data-theme=vibe] header h1{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+:root[data-theme=vibe] header>div:first-child{color:#c084fc;text-shadow:0 0 14px #a855f7}
+:root[data-theme=vibe] .card{background:linear-gradient(180deg,#1a1030,#120b20);border-color:#ffffff12}
+:root[data-theme=vibe] .card h3{color:#c4b5fd}
+:root[data-theme=vibe] .btn{background:#ffffff08;border-color:#ffffff1a}
+:root[data-theme=vibe] .btn:hover:not(:disabled){background:#a855f72a;border-color:#c084fc;box-shadow:0 0 0 1px #c084fc55,0 0 16px #a855f744}
+:root[data-theme=vibe] .btn.on,:root[data-theme=vibe] .btn.on:hover:not(:disabled){background:var(--grad);border-color:transparent;color:#fff}
+:root[data-theme=vibe] .btn.primary{background:var(--grad);border-color:transparent;color:#fff;box-shadow:0 6px 24px #db277755}
+:root[data-theme=vibe] .btn.primary:hover:not(:disabled){filter:brightness(1.12);background:var(--grad)}
+:root[data-theme=vibe] input[type=text],:root[data-theme=vibe] input[type=number],:root[data-theme=vibe] select,:root[data-theme=vibe] textarea{background:#0c0718;border-color:#ffffff1c}
+:root[data-theme=vibe] .stage{background:repeating-conic-gradient(#120a22 0 25%,#170e2b 0 50%) 0/20px 20px}
+:root[data-theme=vibe] .paperwrap{box-shadow:0 0 0 1px #ffffff22,0 10px 40px #a855f755,0 0 60px #ec489933}
+:root[data-theme=vibe] .pill{color:#f0abfc}
+:root[data-theme=vibe] dialog{background:#140d24;border-color:#ffffff1a}
+:root[data-theme=vibe] dialog::backdrop{background:#05020bcc;backdrop-filter:blur(4px)}
+:root[data-theme=vibe] #mbar{background:#0d0819ee;backdrop-filter:blur(14px)}
+:root[data-theme=vibe] #addIcon{border-color:#c084fc66;background:linear-gradient(100deg,#7c3aed22,#db277722)}
+#btnTheme{min-width:84px}
+.shgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
+.shgrid button{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px;border:1px solid var(--line);border-radius:10px;background:var(--panel2);color:var(--ink);cursor:pointer;font-size:12px}
+.shgrid button:hover{outline:2px solid var(--brand)}
+.shgrid canvas,.pvgrid img{background:#fff;border-radius:6px;display:block}
+.pvgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;max-height:60vh;overflow:auto}
+.pvgrid figure{margin:0;font-size:11.5px;color:var(--muted)}.pvgrid img{width:100%;image-rendering:pixelated;border:1px solid var(--line)}
+.sharebox{width:100%;font-family:Consolas,monospace;font-size:12px}
+.cfprev{background:#fff;border-radius:6px;width:100%;image-rendering:pixelated;margin-top:8px}
+optgroup{font-style:normal;color:var(--muted)}
+#addIcon{grid-column:1/-1;flex-direction:row!important;justify-content:center;gap:8px!important;font-size:12.5px!important}
+.icgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px;max-height:52vh;overflow:auto;padding:2px}
+.icgrid button{aspect-ratio:1;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;padding:10px;display:flex;align-items:center;justify-content:center}
+.icgrid button:hover{outline:2px solid var(--brand)}
+.icgrid img{width:100%;height:100%;object-fit:contain;pointer-events:none}
+.chips{display:flex;gap:4px;flex-wrap:wrap;margin:8px 0}.chips .btn{padding:4px 10px;font-size:12px;min-height:0}
+
+/* ---------- mobile (v7) ---------- */
+#mbar{display:none}
+@media(max-width:800px){
+  body{font-size:14px}
+  header{flex-wrap:wrap;gap:6px 8px;padding:8px 10px;padding-top:max(8px,env(safe-area-inset-top))}
+  header>div:first-child{font-size:20px!important}
+  header h1{font-size:15px}
+  header .sub,header .sp{display:none}
+  header .chip{order:5;flex:1 1 100%;justify-content:center}
+  .hbtn{padding:8px 10px;flex:1 1 auto}
+  .app{padding:8px;gap:8px}
+  .card{padding:10px;border-radius:12px}
+  .col.center{position:sticky;top:0;z-index:4}
+  .stagecard{box-shadow:0 6px 16px #0002}
+  .stage{min-height:0;padding:10px 8px}
+  .toolbar{padding:6px 8px;gap:4px;flex-wrap:nowrap}
+  .toolbar .btn{min-height:36px;padding:4px 10px}
+  .toolbar .pill{padding:2px 5px}
+  .info{padding:5px 10px}
+  .btn{min-height:40px;padding:8px 10px}
+  .grid .btn{min-height:56px;font-size:12.5px}
+  input[type=text],input[type=number],select,textarea{font-size:16px;min-height:40px}
+  .check{min-height:34px;font-size:14px}.check input{width:20px;height:20px}
+  input[type=range]{min-height:32px}
+  #layers li{padding:9px 8px}
+  .row{flex-wrap:wrap}.row>*{flex:1 1 90px}
+  dialog{width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;margin:0;border-radius:0}
+  .tpl{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+  .app{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+  #mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;gap:8px;align-items:center;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:var(--panel);border-top:1px solid var(--line);box-shadow:0 -4px 16px #0002}
+  #mbar .mmsg{flex:1;min-width:0;font-size:12.5px;color:var(--muted);overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  #mbar .btn{min-height:46px;padding:0 22px;font-size:15px;font-weight:600}
+}
+@media(max-width:400px){.toolbar .pill{display:none}.toolbar .btn{padding:4px 8px}.info{font-size:11.5px}}
+@media(max-width:800px) and (max-height:560px){.col.center{position:static}}
 </style>
 </head>
 <body>
 <header>
   <div style="font-size:24px">▣</div>
-  <div><h1>AH-P05 Label Studio</h1><div class="sub">Design labels · live preview · prints over Bluetooth · v6</div></div>
+  <div><h1>AH-P05 Label Studio</h1><div class="sub">Design labels · live preview · prints over Bluetooth · v9</div></div>
   <div class="sp"></div>
+  <button class="hbtn hidden" id="btnInstall" type="button" title="Install as an app">⇩ Install</button>
+  <button class="hbtn" id="btnTheme" type="button" title="Switch theme">✦ Vibe</button>
   <button class="hbtn" id="btnTpl">Templates &amp; saved</button>
   <button class="hbtn" id="btnUndo" title="Ctrl+Z" disabled>↶ Undo</button>
   <button class="hbtn" id="btnRedo" title="Ctrl+Y" disabled>↷ Redo</button>
   <span class="chip"><span class="dot" id="dot"></span><span id="chipTxt">Printer: not connected</span></span>
 </header>
 
+<div id="mbar"><div class="mmsg" id="mMsg" aria-live="polite">Ready.</div><button type="button" class="btn primary" id="mPrint">Print</button></div>
 <div class="app">
 <!-- ============ LEFT ============ -->
 <div class="col left">
@@ -102,6 +190,7 @@ dialog::backdrop{background:#0b102088}
     <div class="row" style="margin-top:6px">
       <select id="font" title="Font">
         <option>Segoe UI</option><option>Arial</option><option>Arial Black</option><option>Arial Narrow</option><option>Bahnschrift</option><option>Calibri</option><option>Cascadia Mono</option><option>Comic Sans MS</option><option>Consolas</option><option>Courier New</option><option>Georgia</option><option>Impact</option><option>Segoe Print</option><option>Segoe Script</option><option>Tahoma</option><option>Times New Roman</option><option>Trebuchet MS</option><option>Verdana</option>
+      <optgroup label="Web fonts (load from Google Fonts)"><option>Oswald</option><option>Bebas Neue</option><option>Anton</option><option>Archivo Black</option><option>Barlow Condensed</option><option>Roboto Condensed</option><option>Inter</option><option>JetBrains Mono</option><option>Permanent Marker</option><option>Rubik Mono One</option></optgroup>
       </select>
       <input id="size" class="fix" type="number" min="6" max="300" value="40" style="width:64px" title="Font size (dots)">
     </div>
@@ -116,14 +205,16 @@ dialog::backdrop{background:#0b102088}
   <section class="card">
     <h3>Add to label</h3>
     <div class="grid">
+      <button class="btn" id="addIcon" type="button"><span>✧</span>Outline icons (search 1000s online)</button>
       <button class="btn" id="addText"><span>T</span>Text</button>
       <button class="btn" id="addEmoji"><span>😀</span>Emoji</button>
       <button class="btn" id="addImage"><span>🖼</span>Image</button>
       <button class="btn" id="addQR"><span>▦</span>QR code</button>
       <button class="btn" id="addBar"><span>|||</span>Barcode</button>
       <button class="btn" id="pasteImg"><span>📋</span>Paste</button>
-      <button class="btn" id="addLine"><span>─</span>Line</button>
-      <button class="btn" id="addBorder"><span>▭</span>Border</button>
+      <button class="btn" id="addShapes" type="button"><span>⬠</span>Shapes</button>
+      <button class="btn" id="addCable" type="button"><span>⧉</span>Cable flag</button>
+      <button class="btn hidden" id="addLine" type="button">Line</button><button class="btn hidden" id="addBorder" type="button">Border</button>
       <button class="btn" id="addDate"><span>📅</span>Date</button>
     </div>
     <input type="file" id="file" accept="image/*" multiple class="hidden">
@@ -180,12 +271,12 @@ dialog::backdrop{background:#0b102088}
         <label class="check"><input type="checkbox" data-p="showText"> Show text under bars</label>
         <div class="hint" id="barInfo"></div>
       </div>
-      <div data-for="rect ellipse line">
+      <div data-for="rect ellipse line arrow arrow2 bubble triangle star">
         <div class="row"><div><label class="l">Width</label><input type="number" data-p="w" min="2" max="1200"></div>
-        <div data-for="rect ellipse"><label class="l">Height</label><input type="number" data-p="h" min="2" max="96"></div></div>
+        <div data-for="rect ellipse arrow arrow2 bubble triangle star"><label class="l">Height</label><input type="number" data-p="h" min="2" max="96"></div></div>
         <div class="row"><div><label class="l">Thickness</label><input type="number" data-p="thick" min="1" max="30"></div>
-        <div data-for="rect"><label class="l">Corner radius</label><input type="number" data-p="radius" min="0" max="48"></div></div>
-        <div class="row"><label class="check" data-for="rect ellipse"><input type="checkbox" data-p="fill"> Filled</label><label class="check"><input type="checkbox" data-p="dash"> Dashed</label></div>
+        <div data-for="rect bubble"><label class="l">Corner radius</label><input type="number" data-p="radius" min="0" max="48"></div></div>
+        <div class="row"><label class="check" data-for="rect ellipse arrow arrow2 bubble triangle star"><input type="checkbox" data-p="fill"> Filled</label><label class="check"><input type="checkbox" data-p="dash"> Dashed</label></div>
       </div>
       <label class="l">Align on label</label>
       <div class="seg"><button class="btn" data-ali="l" title="Left">⇤</button><button class="btn" data-ali="ch" title="Center horizontally">↔</button><button class="btn" data-ali="r" title="Right">⇥</button><button class="btn" data-ali="t" title="Top">⤒</button><button class="btn" data-ali="cv" title="Center vertically">↕</button><button class="btn" data-ali="b" title="Bottom">⤓</button></div>
@@ -206,6 +297,9 @@ dialog::backdrop{background:#0b102088}
     <label class="check"><input type="checkbox" id="mirror"> Mirror (for sticking on glass)</label>
     <label class="check"><input type="checkbox" id="invert"> Invert black / white</label>
     <details><summary>Batch list (one label per line)</summary>
+      <div class="row" style="margin:6px 0"><button class="btn" id="btnCsv" type="button">Import CSV / TXT</button><button class="btn" id="btnPreview" type="button">Preview all</button></div>
+      <label class="check"><input type="checkbox" id="csvHeader"> First row is a header (skip it)</label>
+      <input type="file" id="csvFile" accept=".csv,.tsv,.txt,text/csv,text/plain" class="hidden">
       <textarea id="batch" rows="4" placeholder="Alice, Sales&#10;Bob, Support&#10;Use {1} {2} in your text"></textarea>
       <div class="hint">Each line prints one label. Split columns with commas or tabs; use <code>{1}</code>, <code>{2}</code>… in text, QR or barcodes. Paste straight from Excel.</div>
     </details>
@@ -214,7 +308,7 @@ dialog::backdrop{background:#0b102088}
     <button class="btn primary" style="width:100%" id="btnPrint">Print</button>
     <progress id="prog" value="0" max="1" class="hidden"></progress>
     <div id="msg">Turn on the printer and close PrinterMate on your phone.</div>
-    <div class="row" style="margin-top:8px"><button class="btn" id="btnPng">Save PNG</button></div>
+    <div class="row" style="margin-top:8px"><button class="btn" id="btnPng">Save PNG</button><button class="btn" id="btnShare" type="button">Share link</button></div>
   </section>
 
   <section class="card" id="cAdv">
@@ -245,6 +339,52 @@ dialog::backdrop{background:#0b102088}
     <div class="emgrid" id="emGrid"></div>
     <div class="hint" style="margin-top:10px">Need another one? Click here and press <b>Win + .</b> to use the Windows emoji picker, then press Add:</div>
     <div class="row" style="margin-top:6px"><input type="text" id="emAny" placeholder="Paste or pick any emoji / character"><button class="btn fix" id="emAnyAdd">Add</button></div>
+  </div>
+</dialog>
+
+<dialog id="dlgIcon">
+  <div class="dhead"><h2>Outline icons</h2><button class="btn" id="icClose" type="button">Close</button></div>
+  <div class="dbody">
+    <div class="row"><input type="text" id="icSearch" placeholder="Search icons (e.g. wifi, cable, coffee, warning)…"><select id="icWeight" class="fix" style="width:auto" title="Line weight"><option value="1.5">Thin lines</option><option value="2" selected>Normal lines</option><option value="2.75">Bold lines</option></select></div>
+    <div class="chips" id="icSets"></div>
+    <div class="chips" id="icQuick"></div>
+    <div class="icgrid" id="icGrid"></div>
+    <div class="hint" id="icStatus" aria-live="polite"></div>
+    <div class="hint">Icons come from the free <b>Iconify</b> API (Tabler, Lucide, Phosphor, Iconoir — open-source MIT/ISC sets). Needs an internet connection; once added, an icon is saved inside your label. Bold lines print best on a 96-dot head.</div>
+  </div>
+</dialog>
+
+<dialog id="dlgShapes">
+  <div class="dhead"><h2>Shapes</h2><button class="btn" id="shClose" type="button">Close</button></div>
+  <div class="dbody"><div class="shgrid" id="shGrid"></div><div class="hint">Select a shape on the label to change its size, thickness, corner radius, fill or dashes.</div></div>
+</dialog>
+
+<dialog id="dlgCable">
+  <div class="dhead"><h2>Cable flag</h2><button class="btn" id="cfClose" type="button">Close</button></div>
+  <div class="dbody">
+    <label class="l">Text (tokens like {n:2} or {1} work too)</label><input type="text" id="cfText" value="CABLE 01">
+    <div class="row"><div><label class="l">Cable diameter (mm)</label><input type="number" id="cfDia" min="1" max="40" step="0.5" value="6"></div><div><label class="l">Flag length (mm)</label><input type="number" id="cfFlag" min="10" max="60" value="22"></div></div>
+    <label class="check"><input type="checkbox" id="cfFlip" checked> Readable from both sides (second copy turned 180°)</label>
+    <label class="check"><input type="checkbox" id="cfLines" checked> Dashed fold lines</label>
+    <canvas id="cfPrev" class="cfprev" height="96"></canvas>
+    <div class="hint" id="cfInfo"></div>
+    <div class="row" style="margin-top:8px"><button class="btn primary" id="cfMake" type="button">Create cable flag</button></div>
+    <div class="hint">Wrap the middle part around the cable and stick the two ends together. This replaces the current label (Undo brings it back).</div>
+  </div>
+</dialog>
+
+<dialog id="dlgPreview">
+  <div class="dhead"><h2 id="pvTitle">Preview</h2><button class="btn" id="pvClose" type="button">Close</button></div>
+  <div class="dbody"><div class="pvgrid" id="pvGrid"></div><div class="hint" id="pvNote"></div></div>
+</dialog>
+
+<dialog id="dlgShare">
+  <div class="dhead"><h2>Share this label</h2><button class="btn" id="sbClose" type="button">Close</button></div>
+  <div class="dbody">
+    <textarea id="sbLink" class="sharebox" rows="4" readonly></textarea>
+    <div class="row" style="margin-top:8px"><button class="btn primary" id="sbCopy" type="button">Copy link</button></div>
+    <div class="hint" id="sbInfo"></div>
+    <div class="hint">The whole design is inside the link (after the #), so it is never sent to the web server. Anyone who has the link can see what is on the label, so leave passwords out.</div>
   </div>
 </dialog>
 
@@ -472,7 +612,7 @@ function expand(str, vars) {
 }
 function batchLines() { return S.batch.split(/\r?\n/).map(s => s.trim()).filter(Boolean); }
 function labelCount() { const b = batchLines(); return b.length || clamp(parseInt(S.set.copies, 10) || 1, 1, 99); }
-function makeVars(i) { const b = batchLines(); return { n: (parseInt(S.set.start, 10) || 0) + i, cols: b.length ? b[i].split(/\t|,/).map(s => s.trim()) : [], now: new Date() }; }
+function makeVars(i) { const b = batchLines(); return { n: (parseInt(S.set.start, 10) || 0) + i, cols: b.length ? (b[i].includes('\t') ? b[i].split('\t') : b[i].split(',')).map(s => s.trim()) : [], now: new Date() }; }
 
 /* ---------------------------------------------------------------- objects */
 const mk = (type, p) => Object.assign({ id: S.nextId++, type, x: S.len / 2, y: H / 2, rot: 0, pair: false }, p);
@@ -502,12 +642,21 @@ function drawText(ctx, o, x, y, vars) {
 function rrPath(ctx, x, y, w, h, r) {
   r = Math.min(r, w / 2, h / 2); ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
 }
+const SHAPE_PATHS = {
+  arrow(c, w, h) { const sh = h * 0.42, hl = Math.min(w * 0.45, h * 0.9); c.beginPath(); c.moveTo(-w / 2, -sh / 2); c.lineTo(w / 2 - hl, -sh / 2); c.lineTo(w / 2 - hl, -h / 2); c.lineTo(w / 2, 0); c.lineTo(w / 2 - hl, h / 2); c.lineTo(w / 2 - hl, sh / 2); c.lineTo(-w / 2, sh / 2); c.closePath(); },
+  arrow2(c, w, h) { const sh = h * 0.42, hl = Math.min(w * 0.3, h * 0.9); c.beginPath(); c.moveTo(-w / 2, 0); c.lineTo(-w / 2 + hl, -h / 2); c.lineTo(-w / 2 + hl, -sh / 2); c.lineTo(w / 2 - hl, -sh / 2); c.lineTo(w / 2 - hl, -h / 2); c.lineTo(w / 2, 0); c.lineTo(w / 2 - hl, h / 2); c.lineTo(w / 2 - hl, sh / 2); c.lineTo(-w / 2 + hl, sh / 2); c.lineTo(-w / 2 + hl, h / 2); c.closePath(); },
+  triangle(c, w, h) { c.beginPath(); c.moveTo(0, -h / 2); c.lineTo(w / 2, h / 2); c.lineTo(-w / 2, h / 2); c.closePath(); },
+  star(c, w, h) { c.beginPath(); for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, r = i % 2 ? 0.45 : 1; const px = Math.cos(a) * r * w / 2, py = Math.sin(a) * r * h / 2 + h * 0.05; i ? c.lineTo(px, py) : c.moveTo(px, py); } c.closePath(); },
+  bubble(c, w, h, o) { const bh = h * 0.76, x0 = -w / 2, x1 = w / 2, y0 = -h / 2, yb = y0 + bh, r = Math.max(0, Math.min(o.radius ?? 10, bh / 2, w / 2)); const tl = x0 + Math.max(r, w * 0.12), tr = tl + Math.max(8, w * 0.14);
+    c.beginPath(); c.moveTo(x0 + r, y0); c.arcTo(x1, y0, x1, yb, r); c.arcTo(x1, yb, x0, yb, r); c.lineTo(tr, yb); c.lineTo(tl - w * 0.03, h / 2); c.lineTo(tl, yb); c.arcTo(x0, yb, x0, y0, r); c.arcTo(x0, y0, x1, y0, r); c.closePath(); }
+};
 function drawShape(ctx, o, x, y) {
   ctx.save(); ctx.translate(x, y); ctx.rotate(o.rot * Math.PI / 180); ctx.fillStyle = ctx.strokeStyle = '#000';
   const t = o.thick, w = o.w, h = o.shape === 'line' ? t : o.h;
   if (o.dash) ctx.setLineDash([Math.max(3, t * 3), Math.max(2, t * 2)]);
   if (o.shape === 'line') { ctx.lineWidth = t; ctx.beginPath(); ctx.moveTo(-w / 2, 0); ctx.lineTo(w / 2, 0); ctx.stroke(); }
   else if (o.shape === 'rect') { if (o.fill) { rrPath(ctx, -w / 2, -h / 2, w, h, o.radius); ctx.fill(); } else { ctx.lineWidth = t; rrPath(ctx, -w / 2 + t / 2, -h / 2 + t / 2, w - t, h - t, Math.max(0, o.radius - t / 2)); ctx.stroke(); } }
+  else if (SHAPE_PATHS[o.shape]) { ctx.lineJoin = 'round'; const ww = o.fill ? w : Math.max(2, w - t), hh = o.fill ? h : Math.max(2, h - t); SHAPE_PATHS[o.shape](ctx, ww, hh, o); if (o.fill) ctx.fill(); else { ctx.lineWidth = t; ctx.stroke(); } }
   else { ctx.beginPath(); ctx.ellipse(0, 0, Math.max(1, (w - (o.fill ? 0 : t)) / 2), Math.max(1, (h - (o.fill ? 0 : t)) / 2), 0, 0, Math.PI * 2); if (o.fill) ctx.fill(); else { ctx.lineWidth = t; ctx.stroke(); } }
   ctx.restore();
 }
@@ -520,7 +669,7 @@ function imgEl(id) {
 function rotCanvas(c, rot) {
   rot = ((rot % 360) + 360) % 360; if (!rot) return c;
   const sw = rot === 90 || rot === 270, r = document.createElement('canvas'); r.width = sw ? c.height : c.width; r.height = sw ? c.width : c.height;
-  const x = r.getContext('2d'); x.imageSmoothingEnabled = false; x.translate(r.width / 2, r.height / 2); x.rotate(rot * Math.PI / 180); x.drawImage(c, -c.width / 2, -c.height / 2); return r;
+  const x = r.getContext('2d'); x.imageSmoothingEnabled = false; x.translate(r.width / 2, r.height / 2); x.rotate(rot * Math.PI / 180); if (c.width && c.height) x.drawImage(c, -c.width / 2, -c.height / 2); return r;
 }
 function processBitmap(o) {
   const im = imgEl(o.asset); if (!im.complete || !im.naturalWidth) return null;
@@ -648,14 +797,14 @@ function paint() {
   $('#vDesign').classList.toggle('on', S.view === 'design'); $('#vPrint').classList.toggle('on', S.view === 'print');
 }
 function autoZoom() {
-  if (!S.fit) return; const avail = $('#stage').clientWidth - 36; S.zoom = clamp(Math.floor((avail / S.len) * 2) / 2, 1, 8);
+  if (!S.fit) return; const avail = $('#stage').clientWidth - 36; S.zoom = clamp(avail / S.len >= 2 ? Math.floor((avail / S.len) * 2) / 2 : Math.floor((avail / S.len) * 20) / 20, 0.5, 8);
 }
 
 /* ----------------------------------------------------------------- history */
 const snap = () => JSON.stringify({ len: S.len, objs: S.objs, nextId: S.nextId }, (k, v) => k[0] === '_' ? undefined : v);
 function commit() { clearTimeout(commitTimer); const s = snap(); if (hist[hidx] === s) return; hist = hist.slice(0, hidx + 1); hist.push(s); if (hist.length > 60) hist.shift(); hidx = hist.length - 1; updUndo(); }
 function commitSoon() { clearTimeout(commitTimer); commitTimer = setTimeout(commit, 450); }
-function restore(s) { const d = JSON.parse(s); S.len = d.len; S.objs = d.objs; S.nextId = Math.max(S.nextId, d.nextId); if (!getSel()) S.sel = null; $('#lenMm').value = +(S.len / DPMM).toFixed(1); autoZoom(); refreshAll(); }
+function restore(s) { const d = JSON.parse(s); S.len = d.len; S.objs = d.objs; S.nextId = Math.max(S.nextId, d.nextId); if (!getSel()) S.sel = null; $('#lenMm').value = +(S.len / DPMM).toFixed(1); autoZoom(); refreshAll(); ensureFonts(S.objs); }
 function undo() { clearTimeout(commitTimer); commit(); if (hidx > 0) { hidx--; restore(hist[hidx]); updUndo(); } }
 function redo() { if (hidx < hist.length - 1) { hidx++; restore(hist[hidx]); updUndo(); } }
 function updUndo() { $('#btnUndo').disabled = hidx <= 0; $('#btnRedo').disabled = hidx >= hist.length - 1; }
@@ -677,8 +826,8 @@ function dupSel() { const o = getSel(); if (!o) return; const c = JSON.parse(JSO
 function move(o, dir) { const i = S.objs.indexOf(o), j = clamp(i + dir, 0, S.objs.length - 1); if (i === j) return; S.objs.splice(i, 1); S.objs.splice(j, 0, o); commit(); refreshAll(); }
 
 /* ------------------------------------------------------------ UI sync */
-function icon(o) { return o.type === 'text' ? 'T' : o.type === 'bitmap' ? (o.emoji || '🖼') : o.type === 'qr' ? '▦' : o.type === 'barcode' ? '|||' : o.shape === 'line' ? '─' : o.shape === 'ellipse' ? '◯' : '▭'; }
-function nameOf(o) { return o.type === 'text' ? (o.text.replace(/\s+/g, ' ').trim() || '(empty text)') : o.type === 'bitmap' ? (o.emoji ? 'Emoji ' + o.emoji : 'Image') : o.type === 'qr' ? 'QR: ' + o.data : o.type === 'barcode' ? 'Barcode: ' + o.data : o.shape === 'rect' ? 'Border / box' : o.shape === 'line' ? 'Line' : 'Ellipse'; }
+function icon(o) { return o.type === 'text' ? 'T' : o.type === 'bitmap' ? (o.iconName ? '✧' : o.emoji || '🖼') : o.type === 'qr' ? '▦' : o.type === 'barcode' ? '|||' : o.shape === 'line' ? '─' : o.shape === 'ellipse' ? '◯' : ({ arrow: '➜', arrow2: '⟷', bubble: '💬', triangle: '△', star: '☆' })[o.shape] || '▭'; }
+function nameOf(o) { return o.type === 'text' ? (o.text.replace(/\s+/g, ' ').trim() || '(empty text)') : o.type === 'bitmap' ? (o.iconName ? 'Icon: ' + o.iconName : o.emoji ? 'Emoji ' + o.emoji : 'Image') : o.type === 'qr' ? 'QR: ' + o.data : o.type === 'barcode' ? 'Barcode: ' + o.data : o.shape === 'rect' ? 'Border / box' : o.shape === 'line' ? 'Line' : ({ arrow: 'Arrow', arrow2: 'Double arrow', bubble: 'Speech bubble', triangle: 'Triangle', star: 'Star' })[o.shape] || 'Ellipse'; }
 function refreshLayers() {
   const ul = $('#layers'); ul.innerHTML = '';
   [...S.objs].reverse().forEach(o => { const li = document.createElement('li'); li.className = o.id === S.sel ? 'sel' : ''; const a = document.createElement('span'); a.className = 'ic'; a.textContent = icon(o); const b = document.createElement('span'); b.className = 'nm'; b.textContent = nameOf(o); li.append(a, b); li.onclick = () => select(o.id); ul.appendChild(li); });
@@ -693,7 +842,7 @@ function syncText() {
 }
 function syncInspector() {
   const o = getSel(); $('#insNone').classList.toggle('hidden', !!o); $('#insBody').classList.toggle('hidden', !o);
-  $('#insTitle').textContent = o ? ({ text: 'Text', bitmap: o.emoji ? 'Emoji / symbol' : 'Image', qr: 'QR code', barcode: 'Barcode', rect: 'Border / box', ellipse: 'Ellipse', line: 'Line' })[kindOf(o)] : 'Selected item';
+  $('#insTitle').textContent = o ? ({ text: 'Text', bitmap: o.emoji ? 'Emoji / symbol' : 'Image', qr: 'QR code', barcode: 'Barcode', rect: 'Border / box', ellipse: 'Ellipse', line: 'Line', arrow: 'Arrow', arrow2: 'Double arrow', bubble: 'Speech bubble', triangle: 'Triangle', star: 'Star' })[kindOf(o)] : 'Selected item';
   if (!o) return; const k = kindOf(o);
   $$('#insBody [data-for]').forEach(e => e.classList.toggle('hidden', !e.dataset.for.split(' ').includes(k)));
   $$('#insBody [data-p]').forEach(e => {
@@ -703,12 +852,12 @@ function syncInspector() {
     else if (document.activeElement !== e) e.value = (e.dataset.p === 'size' || e.dataset.p === 'w' || e.dataset.p === 'h') ? Math.round(o[p]) : o[p];
   });
   $('#pair').checked = !!o.pair;
-  const vars = makeVars(0); getBitmap(o, vars);
+  const vars = makeVars(0); if (isRaster(o)) getBitmap(o, vars);
   if (o.type === 'qr' && o._info) { const i = o._info; $('#qrInfo').textContent = i.err ? i.err + '. Shorten the text or lower the error correction.' : `Version ${i.version} · ${i.m} dot${i.m > 1 ? 's' : ''} per square · ${(i.dots / DPMM).toFixed(1)} mm.` + (i.m < 2 ? ' ⚠ Squares are 1 dot – probably too small to scan. Use a longer label, less text, or error correction L.' : i.m === 2 ? ' Tip: 3+ dots per square scans more reliably.' : ''); }
   if (o.type === 'barcode' && o._info) { const i = o._info; $('#barInfo').textContent = i.err ? i.err : `${(i.dots / DPMM).toFixed(1)} mm wide. Code 128 supports letters, digits and punctuation.`; }
 }
 function refreshAll() { syncText(); syncInspector(); refreshLayers(); render(); }
-function say(t, cls) { const m = $('#msg'); m.textContent = t; m.className = cls || ''; }
+function say(t, cls) { const m = $('#msg'); m.textContent = t; m.className = cls || ''; const mm = document.getElementById('mMsg'); if (mm) { mm.textContent = t; mm.style.color = cls === 'bad' || cls === 'err' ? 'var(--bad)' : cls === 'ok' ? 'var(--ok)' : ''; } }
 
 /* ------------------------------------------------------ property binding */
 $('#insBody').addEventListener('input', onProp); $('#insBody').addEventListener('change', onProp);
@@ -743,7 +892,7 @@ $('#txt').addEventListener('input', () => {
   else o.text = v;
   render(); refreshLayers(); commitSoon();
 });
-$('#font').onchange = e => applyText({ font: e.target.value });
+$('#font').onchange = e => { applyText({ font: e.target.value }); ensureFonts([{ type: 'text', font: e.target.value }]); };
 $('#size').oninput = e => { const v = parseFloat(e.target.value); if (v >= 6) applyText({ size: Math.min(300, v) }); };
 $$('[data-tg]').forEach(b => b.onclick = () => { const k = b.dataset.tg, o = getSel(), cur = o && o.type === 'text' ? o[k] : S.td[k]; applyText({ [k]: !cur }); });
 $$('[data-al]').forEach(b => b.onclick = () => applyText({ align: b.dataset.al }));
@@ -836,15 +985,17 @@ $('#btnFitLen').onclick = () => {
 };
 $('#btnClear').onclick = () => { if (!S.objs.length) return; S.objs = []; S.sel = null; commit(); refreshAll(); };
 $('#dateFmt').value = S.set.dateFmt; $('#dateFmt').onchange = e => { S.set.dateFmt = e.target.value; saveSet(); render(); };
-$('#zIn').onclick = () => { S.fit = false; S.zoom = Math.min(8, S.zoom + .5); render(); }; $('#zOut').onclick = () => { S.fit = false; S.zoom = Math.max(1, S.zoom - .5); render(); }; $('#zFit').onclick = () => { S.fit = true; autoZoom(); render(); };
+$('#zIn').onclick = () => { S.fit = false; S.zoom = Math.min(8, S.zoom + .5); render(); }; $('#zOut').onclick = () => { S.fit = false; S.zoom = Math.max(0.5, S.zoom - .5); render(); }; $('#zFit').onclick = () => { S.fit = true; autoZoom(); render(); };
 $('#vDesign').onclick = () => { S.view = 'design'; render(); }; $('#vPrint').onclick = () => { S.view = 'print'; render(); };
 window.addEventListener('resize', () => { autoZoom(); render(); });
 
 /* ------------------------------------------------------ canvas pointer UI */
 function pt(e) { const r = cv.getBoundingClientRect(); return { x: (e.clientX - r.left) * S.len / r.width, y: (e.clientY - r.top) * H / r.height }; }
-function hit(p) { const vars = makeVars(0); for (let i = S.objs.length - 1; i >= 0; i--) { const o = S.objs[i], b = bounds(o, vars), m = 3; if (p.x >= b.l - m && p.x <= b.l + b.w + m && p.y >= b.t - m && p.y <= b.t + b.h + m) return o; } return null; }
-function onHandle(p) { const o = getSel(); if (!o) return false; const b = bounds(o, makeVars(0)), r = 6 / S.zoom * 1.4; return Math.abs(p.x - (b.l + b.w + 2 / S.zoom)) <= r && Math.abs(p.y - (b.t + b.h + 2 / S.zoom)) <= r; }
+let lastPtr = 'mouse';
+function hit(p) { const vars = makeVars(0); for (let i = S.objs.length - 1; i >= 0; i--) { const o = S.objs[i], b = bounds(o, vars), m = lastPtr === 'touch' ? 3 + 8 / S.zoom : 3; if (p.x >= b.l - m && p.x <= b.l + b.w + m && p.y >= b.t - m && p.y <= b.t + b.h + m) return o; } return null; }
+function onHandle(p) { const o = getSel(); if (!o) return false; const b = bounds(o, makeVars(0)), r = (lastPtr === 'touch' ? 16 : 6) / S.zoom * 1.4; return Math.abs(p.x - (b.l + b.w + 2 / S.zoom)) <= r && Math.abs(p.y - (b.t + b.h + 2 / S.zoom)) <= r; }
 cv.addEventListener('pointerdown', e => {
+  lastPtr = e.pointerType || 'mouse';
   if (S.view !== 'design') return; const p = pt(e); cv.setPointerCapture(e.pointerId);
   if (onHandle(p)) { const o = getSel(), vars = makeVars(0), b = bounds(o, vars); drag = { mode: 'size', o, b, o0: JSON.parse(JSON.stringify(o, (k, v) => k[0] === '_' ? undefined : v)), vars }; return; }
   const o = hit(p); if (o) { if (o.id !== S.sel) select(o.id); drag = { mode: 'move', o, p, x0: o.x, y0: o.y, moved: false }; } else { select(null); }
@@ -1136,9 +1287,252 @@ $('#btnPrint').onclick = printAll;
 /* ------------------------------------------------------------------ init */
 $('#vDesign').classList.add('on'); updPrintBtn();
 commit(); autoZoom(); refreshAll();
+
+
+/* ================= v9 features ================= */
+/* ---- web fonts (Google Fonts, loaded only when picked) ---- */
+function ensureFonts(objs) {
+  const WF = { 'Oswald': ':wght@400;700', 'Bebas Neue': '', 'Anton': '', 'Archivo Black': '', 'Barlow Condensed': ':wght@400;700', 'Roboto Condensed': ':wght@400;700', 'Inter': ':wght@400;700', 'JetBrains Mono': ':wght@400;700', 'Permanent Marker': '', 'Rubik Mono One': '' };
+  const want = [...new Set((objs || []).filter(o => o && o.type === 'text' && o.font in WF).map(o => o.font))];
+  want.forEach(f => {
+    window.__wf = window.__wf || {}; if (window.__wf[f]) return; window.__wf[f] = 1;
+    const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = 'https://fonts.googleapis.com/css2?family=' + encodeURIComponent(f).replace(/%20/g, '+') + WF[f] + '&display=swap';
+    l.onerror = () => { window.__wf[f] = 0; say('Could not load the web font “' + f + '” (offline?). A fallback font is shown.', 'bad'); };
+    l.onload = () => Promise.all([document.fonts.load(`400 40px "${f}"`), document.fonts.load(`700 40px "${f}"`)]).then(() => { render(); syncInspector(); }).catch(() => { });
+    document.head.appendChild(l);
+  });
+}
+ensureFonts(S.objs);
+
+/* ---- shapes dialog ---- */
+(() => {
+  const dlg = $('#dlgShapes'), g = $('#shGrid');
+  const base = { thick: 3, radius: 0, fill: false, dash: false };
+  const LIST = [
+    ['Border', () => $('#addBorder').click()],
+    ['Box', { shape: 'rect', w: 120, h: 70 }], ['Rounded box', { shape: 'rect', w: 120, h: 70, radius: 16 }], ['Pill', { shape: 'rect', w: 140, h: 56, radius: 28 }],
+    ['Circle', { shape: 'ellipse', w: 70, h: 70 }], ['Line', () => $('#addLine').click()], ['Dashed line', { shape: 'line', w: 160, h: 2, thick: 2, dash: true }],
+    ['Arrow', { shape: 'arrow', w: 110, h: 56, fill: true }], ['Arrow outline', { shape: 'arrow', w: 110, h: 56 }], ['Double arrow', { shape: 'arrow2', w: 140, h: 50, fill: true }],
+    ['Speech bubble', { shape: 'bubble', w: 150, h: 84, radius: 14 }], ['Triangle', { shape: 'triangle', w: 76, h: 70 }], ['Warning triangle', { shape: 'triangle', w: 80, h: 72, thick: 6 }],
+    ['Star', { shape: 'star', w: 76, h: 74, fill: true }], ['Star outline', { shape: 'star', w: 76, h: 74 }]
+  ];
+  LIST.forEach(([name, p]) => {
+    const b = document.createElement('button'); b.type = 'button'; const c = document.createElement('canvas'); c.width = 84; c.height = 52; const x = c.getContext('2d');
+    const demo = typeof p === 'function' ? (name === 'Line' ? { shape: 'line', w: 160, h: 3, thick: 3 } : { shape: 'rect', w: 320, h: 94, thick: 3, radius: 8 }) : Object.assign({}, base, p);
+    const o = Object.assign({ rot: 0 }, base, demo), sc = Math.min(74 / o.w, 44 / (o.shape === 'line' ? 10 : o.h), 1);
+    x.save(); x.translate(42, 26); x.scale(sc, sc); drawShape(x, Object.assign({}, o, { thick: Math.max(1, o.thick) }), 0, 0); x.restore();
+    const sp = document.createElement('span'); sp.textContent = name; b.append(c, sp);
+    b.addEventListener('click', () => { if (typeof p === 'function') p(); else addObj(mk('shape', Object.assign({}, base, p))); dlg.close(); });
+    g.appendChild(b);
+  });
+  $('#addShapes').addEventListener('click', () => dlg.showModal());
+  $('#shClose').addEventListener('click', () => dlg.close());
+})();
+
+/* ---- cable flag builder ---- */
+(() => {
+  const dlg = $('#dlgCable');
+  function plan() {
+    const d = clamp(parseFloat($('#cfDia').value) || 6, 1, 40), f = clamp(parseFloat($('#cfFlag').value) || 22, 10, 60);
+    const wrapMm = Math.PI * d + 2, F = Math.round(f * DPMM), Wd = Math.round(wrapMm * DPMM);
+    let L = Math.ceil((2 * F + Wd) / 8) * 8; const tooLong = L > MAXLEN; L = clamp(L, 80, MAXLEN);
+    const text = $('#cfText').value || ' ', t = Object.assign({}, S.td, { text, size: 60, rot: 0 });
+    const m = measureText(t, makeVars(0)), size = clamp(Math.floor(60 * Math.min((F - 10) / m.w, (H - 14) / m.h)), 8, 72);
+    return { d, f, wrapMm, F, L, size, text, tooLong };
+  }
+  function build(pl) {
+    const objs = [newText(pl.text, { size: pl.size, x: pl.F / 2, y: H / 2, rot: 0 }), newText(pl.text, { size: pl.size, x: pl.L - pl.F / 2, y: H / 2, rot: $('#cfFlip').checked ? 180 : 0 })];
+    if ($('#cfLines').checked) [pl.F, pl.L - pl.F].forEach(x => objs.push(mk('shape', { shape: 'line', w: H - 10, h: 1, thick: 1, dash: true, fill: false, radius: 0, x, y: H / 2, rot: 90 })));
+    return objs;
+  }
+  function preview() {
+    const pl = plan(), c = $('#cfPrev'), x = c.getContext('2d'); c.width = pl.L; c.height = H;
+    x.fillStyle = '#fff'; x.fillRect(0, 0, pl.L, H); x.fillStyle = '#ece7ff'; x.fillRect(pl.F, 0, pl.L - 2 * pl.F, H);
+    const v = makeVars(0); build(pl).forEach(o => drawObj(x, o, o.x, o.y, v));
+    $('#cfInfo').textContent = `Label ${(pl.L / DPMM).toFixed(0)} mm: two ${pl.f} mm flags + ${pl.wrapMm.toFixed(0)} mm wrap for a ${pl.d} mm cable.` + (pl.tooLong ? ' (Too long – capped at ' + (MAXLEN / DPMM) + ' mm.)' : '');
+  }
+  ['cfText', 'cfDia', 'cfFlag', 'cfFlip', 'cfLines'].forEach(id => $('#' + id).addEventListener('input', preview));
+  $('#cfMake').addEventListener('click', () => {
+    const pl = plan(); S.nextId = Math.max(S.nextId, 1); S.len = pl.L; S.objs = build(pl); S.sel = null; S.fit = true;
+    $('#lenMm').value = +(S.len / DPMM).toFixed(1); autoZoom(); commit(); refreshAll(); dlg.close(); say('Cable flag created. Print it, wrap the middle around the cable, and press the ends together.', 'ok');
+  });
+  $('#addCable').addEventListener('click', () => { dlg.showModal(); preview(); });
+  $('#cfClose').addEventListener('click', () => dlg.close());
+})();
+
+/* ---- CSV import + preview all ---- */
+function parseDelimited(text) {
+  text = text.replace(/^\uFEFF/, ''); const first = text.split(/\r?\n/)[0] || '';
+  const delim = first.includes('\t') ? '\t' : (first.split(';').length > first.split(',').length ? ';' : ',');
+  const rows = []; let row = [], cell = '', q = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (q) { if (ch === '"') { if (text[i + 1] === '"') { cell += '"'; i++; } else q = false; } else cell += ch; }
+    else if (ch === '"' && cell === '') q = true;
+    else if (ch === delim) { row.push(cell); cell = ''; }
+    else if (ch === '\n' || ch === '\r') { if (ch === '\r' && text[i + 1] === '\n') i++; row.push(cell); rows.push(row); row = []; cell = ''; }
+    else cell += ch;
+  }
+  if (cell !== '' || row.length) { row.push(cell); rows.push(row); }
+  return rows.filter(r => r.some(c => c.trim() !== ''));
+}
+$('#btnCsv').addEventListener('click', () => $('#csvFile').click());
+$('#csvFile').addEventListener('change', async e => {
+  const f = e.target.files[0]; e.target.value = ''; if (!f) return;
+  if (/\.xlsx?$/i.test(f.name)) return say('Excel files can’t be read directly. In Excel use File → Save As → CSV, or just copy the cells and paste them into the batch box.', 'bad');
+  if (f.size > 2e6) return say('That file is too big (max 2 MB).', 'bad');
+  let rows = parseDelimited(await f.text()); if ($('#csvHeader').checked) rows = rows.slice(1);
+  let note = ''; if (rows.length > 500) { rows = rows.slice(0, 500); note = ' (first 500 rows)'; }
+  S.batch = rows.map(r => r.map(c => c.replace(/[\t\r\n]+/g, ' ').trim()).join('\t')).join('\n'); $('#batch').value = S.batch;
+  const det = $('#batch').closest('details'); if (det) det.open = true;
+  updPrintBtn(); render(); say(`Imported ${rows.length} row(s)${note}. Use {1}, {2}… in your text for the columns.`, 'ok');
+});
+function oneBit(vars) {
+  const c = labelCanvas(vars), ink = inkOf(c), out = document.createElement('canvas'); out.width = S.len; out.height = H; const x = out.getContext('2d'), id = x.createImageData(S.len, H);
+  for (let i = 0; i < ink.length; i++) { const v = ink[i] ? 0 : 255; id.data[i * 4] = id.data[i * 4 + 1] = id.data[i * 4 + 2] = v; id.data[i * 4 + 3] = 255; }
+  x.putImageData(id, 0, 0); return out;
+}
+$('#btnPreview').addEventListener('click', () => {
+  const n = labelCount(), show = Math.min(n, 200), g = $('#pvGrid'); g.innerHTML = '';
+  for (let i = 0; i < show; i++) { const fg = document.createElement('figure'), im = document.createElement('img'); im.src = oneBit(makeVars(i)).toDataURL(); im.alt = 'Label ' + (i + 1); const cap = document.createElement('figcaption'); cap.textContent = '#' + (i + 1); fg.append(im, cap); g.appendChild(fg); }
+  $('#pvTitle').textContent = `Preview – ${n} label${n > 1 ? 's' : ''}`; $('#pvNote').textContent = (n > show ? `Showing the first ${show}. ` : '') + 'Exactly what will be printed (black & white).';
+  $('#dlgPreview').showModal();
+});
+$('#pvClose').addEventListener('click', () => $('#dlgPreview').close());
+
+/* ---- share links (design packed into the #fragment) ---- */
+const b64u = { enc: u8 => { let s = ''; for (let i = 0; i < u8.length; i += 0x8000) s += String.fromCharCode.apply(null, u8.subarray(i, i + 0x8000)); return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); },
+  dec: str => { const s = atob(str.replace(/-/g, '+').replace(/_/g, '/')); const u = new Uint8Array(s.length); for (let i = 0; i < s.length; i++) u[i] = s.charCodeAt(i); return u; } };
+async function zip(u8, mode) { const cs = mode === 'c' ? new CompressionStream('deflate-raw') : new DecompressionStream('deflate-raw'); return new Uint8Array(await new Response(new Blob([u8]).stream().pipeThrough(cs)).arrayBuffer()); }
+function cleanDesign(d) {
+  if (!d || typeof d !== 'object' || !Array.isArray(d.objs)) throw new Error('not a label');
+  const TYPES = ['text', 'bitmap', 'qr', 'barcode', 'shape'], SHAPES = ['rect', 'ellipse', 'line', 'arrow', 'arrow2', 'bubble', 'triangle', 'star'];
+  const assets = {}, okImg = /^data:image\/(png|jpeg|gif|webp);base64,[A-Za-z0-9+/=]+$/;
+  for (const [k, v] of Object.entries(d.assets || {})) if (/^[\w-]{1,40}$/.test(k) && typeof v === 'string' && v.length < 4e6 && okImg.test(v)) assets[k] = v;
+  const objs = [];
+  for (const o of d.objs.slice(0, 200)) {
+    if (!o || !TYPES.includes(o.type)) continue; if (o.type === 'shape' && !SHAPES.includes(o.shape)) continue; if (o.type === 'bitmap' && !assets[o.asset]) continue;
+    const c = {};
+    for (const [k, v] of Object.entries(o)) {
+      if (!/^[a-zA-Z][a-zA-Z0-9]{0,19}$/.test(k)) continue;
+      if (typeof v === 'number' && Number.isFinite(v) && Math.abs(v) < 1e5) c[k] = v;
+      else if (typeof v === 'boolean') c[k] = v;
+      else if (typeof v === 'string' && v.length <= 2000) c[k] = v;
+    }
+    if (c.font != null && !/^[\w .\-]{1,60}$/.test(c.font)) c.font = 'Segoe UI';
+    c.id = objs.length + 1; objs.push(c);
+  }
+  const len = clamp(Math.round((+d.len || 320) / 8) * 8, 80, MAXLEN);
+  return { len, objs, assets };
+}
+async function makeShareLink() {
+  const used = {}; S.objs.forEach(o => { if (o.asset) used[o.asset] = S.assets[o.asset]; });
+  const json = JSON.stringify({ v: 1, len: S.len, objs: JSON.parse(snap()).objs, assets: used });
+  return location.href.split('#')[0] + '#L=' + b64u.enc(await zip(new TextEncoder().encode(json), 'c'));
+}
+$('#btnShare').addEventListener('click', async () => {
+  if (!('CompressionStream' in window)) return say('This browser can’t make share links. Try Edge or Chrome.', 'bad');
+  try {
+    const url = await makeShareLink(); $('#sbLink').value = url;
+    const kb = (url.length / 1024).toFixed(1);
+    $('#sbInfo').textContent = `Link length: ${kb} KB.` + (url.length > 8000 ? ' Pictures make links long – some chat apps may cut them off. Text, QR codes, barcodes and shapes keep links short.' : '') + (location.protocol === 'file:' ? ' Note: this page is opened from a file on your PC, so the link only works on this PC. Use the hosted version to share with others.' : '');
+    $('#dlgShare').showModal(); $('#sbLink').select();
+  } catch (e) { say('Could not create the link: ' + e.message, 'bad'); }
+});
+$('#sbCopy').addEventListener('click', async () => { try { await navigator.clipboard.writeText($('#sbLink').value); $('#sbCopy').textContent = 'Copied ✓'; } catch { $('#sbLink').select(); document.execCommand('copy'); $('#sbCopy').textContent = 'Copied ✓'; } setTimeout(() => $('#sbCopy').textContent = 'Copy link', 1600); });
+$('#sbClose').addEventListener('click', () => $('#dlgShare').close());
+(async () => {
+  const m = location.hash.match(/^#L=([A-Za-z0-9_-]+)$/); if (!m) return;
+  history.replaceState(null, '', location.href.split('#')[0]);
+  try {
+    if (!('DecompressionStream' in window)) throw new Error('browser too old');
+    const d = cleanDesign(JSON.parse(new TextDecoder().decode(await zip(b64u.dec(m[1]), 'd'))));
+    if (S.objs.length && !confirm('Open the shared label? It replaces the current design (Undo brings it back).')) return;
+    Object.assign(S.assets, d.assets); for (const k in d.assets) delete imgEls[k];
+    restore(JSON.stringify({ len: d.len, objs: d.objs, nextId: d.objs.length + 1 })); S.nextId = d.objs.length + 1; commit();
+    say('Opened a shared label.', 'ok');
+  } catch (e) { say('That share link could not be opened – it looks damaged or incomplete (' + e.message + ').', 'bad'); }
+})();
+
+/* ---- install as an app (PWA) ---- */
+(() => {
+  let ev = null; const b = $('#btnInstall');
+  window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); ev = e; b.classList.remove('hidden'); });
+  b.addEventListener('click', async () => { if (!ev) return; ev.prompt(); await ev.userChoice.catch(() => { }); ev = null; b.classList.add('hidden'); });
+  window.addEventListener('appinstalled', () => { b.classList.add('hidden'); say('Installed. You can open Label Studio from your Start menu or home screen.', 'ok'); });
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) navigator.serviceWorker.register('sw.js').catch(() => { });
+})();
+
+/* ---- theme switcher (v8) ---- */
+(() => {
+  const order = ['vibe', 'night', 'light'], label = { vibe: '✦ Vibe', night: '☾ Night', light: '☀ Light' }, meta = { vibe: '#0a0614', night: '#07090e', light: '#3f42c4' };
+  const apply = t => { document.documentElement.dataset.theme = t; $('#btnTheme').textContent = label[t]; $('#btnTheme').title = 'Theme: ' + t + ' (click to switch)'; const m = document.querySelector('meta[name=theme-color]'); if (m) m.content = meta[t]; };
+  let cur = order.includes(document.documentElement.dataset.theme) ? document.documentElement.dataset.theme : 'vibe'; apply(cur);
+  $('#btnTheme').addEventListener('click', () => { cur = order[(order.indexOf(cur) + 1) % order.length]; apply(cur); store.set('theme', cur); render(); });
+})();
+
+/* ---- outline icon picker (Iconify API, v8) ---- */
+(() => {
+  const API = 'https://api.iconify.design', dlg = $('#dlgIcon'), grid = $('#icGrid'), st = $('#icStatus');
+  const SETS = [['All outline', 'tabler,lucide,ph,iconoir'], ['Tabler', 'tabler'], ['Lucide', 'lucide'], ['Phosphor', 'ph'], ['Iconoir', 'iconoir']];
+  const QUICK = ['wifi', 'cable', 'power', 'battery', 'server', 'printer', 'phone', 'mail', 'home', 'box', 'tools', 'warning', 'flame', 'snowflake', 'recycle', 'trash', 'key', 'lock', 'coffee', 'heart', 'star', 'gift', 'calendar', 'arrow'];
+  const START = ['wifi', 'plug', 'bolt', 'battery', 'server', 'printer', 'device-desktop', 'device-mobile', 'mail', 'home', 'box', 'tool', 'alert-triangle', 'flame', 'snowflake', 'recycle', 'trash', 'key', 'lock', 'coffee', 'heart', 'star', 'gift', 'calendar', 'clock', 'map-pin', 'phone', 'user', 'tag', 'qrcode', 'shopping-cart', 'leaf', 'paw', 'baby-carriage', 'music', 'camera'].map(n => 'tabler:' + n);
+  let sets = SETS[0][1], timer = 0, reqId = 0;
+  const outlineOnly = n => !/-(fill|filled|duotone|solid|thin|light)$/.test(n) && !/-filled-/.test(n);
+  const thumb = n => { const [p, k] = n.split(':'); return `${API}/${p}/${k}.svg?height=48`; };
+  function show(list, note) {
+    grid.innerHTML = '';
+    list.forEach(n => { const b = document.createElement('button'); b.type = 'button'; b.title = n; b.setAttribute('aria-label', n); const im = document.createElement('img'); im.loading = 'lazy'; im.alt = ''; im.src = thumb(n); im.onerror = () => b.remove(); b.appendChild(im); b.addEventListener('click', () => pick(n)); grid.appendChild(b); });
+    st.textContent = note || '';
+  }
+  async function search() {
+    const q = $('#icSearch').value.trim(); const id = ++reqId;
+    if (!q) { show(START.filter(() => sets.includes('tabler')).length ? START : [], 'Popular icons. Type to search.'); if (!sets.includes('tabler')) st.textContent = 'Type to search this icon set.'; return; }
+    st.textContent = 'Searching…';
+    try {
+      const r = await fetch(`${API}/search?query=${encodeURIComponent(q)}&limit=160&prefixes=${sets}`); if (!r.ok) throw new Error('HTTP ' + r.status);
+      const d = await r.json(); if (id !== reqId) return;
+      const list = (d.icons || []).filter(outlineOnly).slice(0, 120);
+      show(list, list.length ? `${list.length} icons — click one to add it.` : 'No icons found. Try another word (English works best).');
+    } catch (e) { if (id === reqId) { grid.innerHTML = ''; st.textContent = 'Could not reach the icon service. Check your internet connection. (' + e.message + ')'; } }
+  }
+  async function pick(n) {
+    const [p, k] = n.split(':'); st.textContent = 'Adding ' + n + '…';
+    try {
+      const r = await fetch(`${API}/${p}/${k}.svg?height=240&color=%23000000`); if (!r.ok) throw new Error('HTTP ' + r.status);
+      let svg = await r.text(); const w = $('#icWeight').value;
+      svg = svg.replace(/stroke-width="[\d.]+"/g, `stroke-width="${w}"`);
+      const url = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' })), im = new Image();
+      await new Promise((ok, bad) => { im.onload = ok; im.onerror = () => bad(new Error('image decode failed')); im.src = url; });
+      const c = document.createElement('canvas'); c.width = c.height = 260; const x = c.getContext('2d', { willReadFrequently: true }); x.drawImage(im, 10, 10, 240, 240); URL.revokeObjectURL(url);
+      const dd = x.getImageData(0, 0, 260, 260).data; let x0 = 260, y0 = 260, x1 = -1, y1 = -1;
+      for (let y = 0; y < 260; y++) for (let xx = 0; xx < 260; xx++) if (dd[(y * 260 + xx) * 4 + 3] > 20) { if (xx < x0) x0 = xx; if (xx > x1) x1 = xx; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+      if (x1 < 0) throw new Error('empty icon');
+      const cw = x1 - x0 + 1, ch = y1 - y0 + 1, t = document.createElement('canvas'); t.width = cw; t.height = ch; t.getContext('2d').drawImage(c, x0, y0, cw, ch, 0, 0, cw, ch);
+      addBitmapObj(t.toDataURL('image/png'), cw, ch, { mode: 'threshold', thr: 150, hasAlpha: true, iconName: k.replace(/-/g, ' ') });
+      dlg.close(); say('Icon added: ' + n + '. Resize it with the corner handle.', 'ok');
+    } catch (e) { st.textContent = 'Could not add that icon (' + e.message + ').'; }
+  }
+  SETS.forEach(([lbl, v], i) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'btn' + (i ? '' : ' on'); b.textContent = lbl; b.addEventListener('click', () => { sets = v; [...$('#icSets').children].forEach(c => c.classList.toggle('on', c === b)); search(); }); $('#icSets').appendChild(b); });
+  QUICK.forEach(q => { const b = document.createElement('button'); b.type = 'button'; b.className = 'btn'; b.textContent = q; b.addEventListener('click', () => { $('#icSearch').value = q; search(); }); $('#icQuick').appendChild(b); });
+  $('#icSearch').addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(search, 350); });
+  $('#icSearch').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); clearTimeout(timer); search(); } });
+  $('#icClose').addEventListener('click', () => dlg.close());
+  $('#addIcon').addEventListener('click', () => { dlg.showModal(); if (!grid.children.length) search(); $('#icSearch').focus(); });
+})();
+
+/* ---- mobile helpers (v7) ---- */
+(() => {
+  const bp = $('#btnPrint'), mp = $('#mPrint');
+  mp.addEventListener('click', () => bp.click());
+  const sync = () => { mp.disabled = bp.disabled; mp.textContent = bp.textContent; };
+  new MutationObserver(sync).observe(bp, { attributes: true, childList: true, characterData: true, subtree: true }); sync();
+    $('#mMsg').textContent = $('#msg').textContent;
+})();
+
 (async () => {
   const n = store.get('devName', '');
-  plog('AH-P05 Label Studio v6 started. Web Bluetooth: ' + (navigator.bluetooth ? 'available' : 'NOT available'));
+  plog('AH-P05 Label Studio v9 started. Web Bluetooth: ' + (navigator.bluetooth ? 'available' : 'NOT available'));
   if (!navigator.bluetooth) { setConn('err', 'Printer: Bluetooth not available in this browser'); return; }
   setConn('', n ? `Printer: ${n} remembered` : 'Printer: not connected');
   if (!S.set.autoConn) { plog('Auto-connect on open is off - the printer stays free until you press Connect or Print.'); return; }
