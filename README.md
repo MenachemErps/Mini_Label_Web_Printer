@@ -4,7 +4,7 @@ A small project for myself for printing to the **XenGro AH-P05** Bluetooth label
 
 It includes:
 
-- **AH-P05 Label Studio** (`AHP05_Label_Studio_v6.html`): a single HTML file that runs in Edge or Chrome and prints over Web Bluetooth. No install, no Python.
+- **AH-P05 Label Studio** (`index.html`): a single HTML file that runs in Edge or Chrome and prints over Web Bluetooth. No install, no Python.
 - **Protocol notes** (below) for anyone writing their own driver.
 
 > Made with AI. Use at your own risk.
@@ -13,20 +13,11 @@ It includes:
 
 ## Quick start (browser app)
 
-1. Download `AHP05_Label_Studio_v6.html` and open it in **Microsoft Edge** or **Google Chrome** on Windows.
+1. Open the hosted page (via GitHub Pages) or download `index.html` and open it in **Microsoft Edge** or **Google Chrome** on Windows.
 2. Make sure the printer is on and **not connected to your phone** (it only allows one connection at a time).
 3. Design a label and press **Print**. Pick `AH-P05` in the Bluetooth window.
 
 Features: text and fonts, emoji and symbols, images, QR codes, Code 128 barcodes, borders, date and counter tokens, copies and batches, templates, saved labels, PNG export, and a diagnostics log.
-
-## Quick start (Python test)
-
-```
-pip install bleak
-python ahp05_handshake_test.py --print
-```
-
-Prints a striped test pattern and shows every packet. `--no-handshake --print` shows what happens without the unlock (the job is silently discarded).
 
 ---
 
@@ -52,17 +43,8 @@ Tested on one printer:
 
 ### Is this a replay?
 
-**Yes.** These tools resend the exact bytes the app sent in one capture. I didn't work out how the app generates them.
-
-It works because the printer adds no randomness of its own: the same challenge got the identical reply every time, even after a power cycle. So a recorded exchange keeps working. It looks like a simple "is this the official app?" check rather than real security.
-
+**Yes.** These tools resend the exact bytes the app sent in one capture. I didn't work out how the app generates them. It works because the printer adds no randomness of its own: the same challenge got the identical reply every time, even after a power cycle. So a recorded exchange keeps working. It looks like a simple "is this the official app?" check rather than real security.
 
 ## Known issues
 
 - Edge may show the Bluetooth picker on every connection.
-- Code 128 barcodes haven't been checked with a real scanner yet.
-- Label length (40 mm) is assumed, not measured.
-
-## Related projects
-
-Similar printers with related protocols: LX-D02 (`amahlaka/LX-D02`), picoprint (`bigtower17/picoprint`), blethermal (XenGro AH-M2), and printer-driver-funnyprint.
